@@ -1,4 +1,7 @@
 var express = require('express');
+var bodyParser = require('body-parser');
+
+// Creating our main app
 var app = express();
 
 // Set the port for our application
@@ -7,6 +10,11 @@ var port = process.env.PORT || 3000;
 
 // Set the view engine to ejs
 app.set('view engine', 'ejs');
+
+// Parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
 
 // Make express look in the public directory for assets (css/js/img)
 app.use(express.static(__dirname + '/public'));
