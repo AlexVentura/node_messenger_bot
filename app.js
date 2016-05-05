@@ -1,7 +1,7 @@
 // Modules needed in the app
 var express = require('express');
 var bodyParser = require('body-parser');
-var answers = require('./services/AnswerService');
+var answers = require('./services/answers-service.js');
 
 // Creating our main app
 var app = express();
