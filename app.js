@@ -17,12 +17,12 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
-// GET method route
+// GET method route for testing the routes
 app.get('/test', function (req, res) {
 	res.send('GET request to the homepage');
 });
 
-// POST method route
+// POST method route fot Verify the communication
 app.get('/webhook/', function (req, res) {
 	if (req.query['hub.verify_token'] === 'my-super-secret') {
 		res.send(req.query['hub.challenge']);
@@ -31,6 +31,7 @@ app.get('/webhook/', function (req, res) {
 	}
 });
 
+// For getting the entry messages
 app.post('/webhook/', function (req, res) {
 	messaging_events = req.body.entry[0].messaging;
 
@@ -41,6 +42,7 @@ app.post('/webhook/', function (req, res) {
 		if (event.message && event.message.text) {
 			text = event.message.text;
 			// Handle a text message from this sender
+			console.log('▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸', text);
 		}
 	}
 
