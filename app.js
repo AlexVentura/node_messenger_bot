@@ -53,7 +53,14 @@ app.post('/webhook/', function (req, res) {
 			text = event.message.text;
 			// Handle a text message from this sender
 			console.log('▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸', text);
-			answers.sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
+
+			// Send back a Structured Message if user sends a message "Generic".
+			if (text === 'Generic') {
+				answers.sendGenericMessage(sender);
+				continue;
+			} else {
+				answers.sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
+			}
 		}
 	}
 
