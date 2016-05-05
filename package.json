@@ -1,0 +1,29 @@
+{
+  "name": "node_bot",
+  "version": "1.0.0",
+  "description": "A quick example working with messenger API to create a simple bot.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AlexVentura/node_messenger_bot.git"
+  },
+  "keywords": [
+    "nodejs",
+    "facebook",
+    "messenger",
+    "bot"
+  ],
+  "author": "Alejandro Ventura <venturacontreras@icloud.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlexVentura/node_messenger_bot/issues"
+  },
+  "homepage": "https://github.com/AlexVentura/node_messenger_bot#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
