@@ -1,5 +1,7 @@
+// Modules needed in the app
 var express = require('express');
 var bodyParser = require('body-parser');
+var answers = require('./services/AnswerService');
 
 // Creating our main app
 var app = express();
@@ -51,6 +53,7 @@ app.post('/webhook/', function (req, res) {
 			text = event.message.text;
 			// Handle a text message from this sender
 			console.log('▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸', text);
+			answers.sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
 		}
 	}
 
