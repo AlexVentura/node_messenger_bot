@@ -23,8 +23,11 @@ app.get('/test', function (req, res) {
 });
 
 // POST method route
-app.post('/', function (req, res) {
-	res.send('POST request to the homepage');
+app.get('/webhook/', function (req, res) {
+	if (req.query['hub.verify_token'] === 'my-super-secret') {
+		res.send(req.query['hub.challenge']);
+	}
+	res.send('Error, wrong validation token');
 });
 
 app.listen(port, function () {
