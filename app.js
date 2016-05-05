@@ -26,8 +26,9 @@ app.get('/test', function (req, res) {
 app.get('/webhook/', function (req, res) {
 	if (req.query['hub.verify_token'] === 'my-super-secret') {
 		res.send(req.query['hub.challenge']);
+	} else {
+		res.send('Error, wrong validation token');
 	}
-	res.send('Error, wrong validation token');
 });
 
 app.listen(port, function () {
