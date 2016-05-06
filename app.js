@@ -29,7 +29,7 @@ app.get('/', function(req, res) {
 
 // GET method route for testing the routes
 app.get('/test', function (req, res) {
-	res.send('GET request to the homepage');
+	res.send('Hello world, I am a chat bot');
 });
 
 // POST method route fot Verify the communication
