@@ -72,7 +72,7 @@ app.post('/webhook/', function (req, res) {
 
 			console.log('▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸', text);
 
-			answers.sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token);
+			answers.sendTextMessage(sender, "Postback received: "+text.substring(0, 200));
 			continue
 		}
 	}
