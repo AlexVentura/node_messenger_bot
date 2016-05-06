@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // Modules needed in the app
 var express = require('express');
@@ -48,21 +48,30 @@ app.post('/webhook/', function (req, res) {
 	var messaging_events = req.body.entry[0].messaging;
 
 	for (var k = 0; k < messaging_events.length; k++) {
-		var event = req.body.entry[0].messaging[k];
-		var sender = event.sender.id;
+		var event = req.body.entry[0].messaging[k],
+			sender = event.sender.id,
+			text;
 
 		if (event.message && event.message.text) {
-			var text = event.message.text;
+			text = event.message.text;
 			// Handle a text message from this sender
 			console.log('▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸', text);
 
 			// Send back a Structured Message if user sends a message "Generic".
 			if (text === 'Generic') {
 				answers.sendGenericMessage(sender);
+
 				continue;
 			} else {
 				answers.sendTextMessage(sender, "Text received, echo: "+ text.substring(0, 200));
 			}
+		}
+		// When the user clicks on a message button or card though, we send back a postback function.
+		if (event.postback) {
+			text = JSON.stringify(event.postback);
+
+			sendTextMessage(sender, "Postback received: "+text.substring(0, 200), token);
+			continue
 		}
 	}
 
