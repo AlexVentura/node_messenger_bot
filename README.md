@@ -1,4 +1,4 @@
-# NodeJS Messenger bot
+# NodeJS Messenger Bot
 
 A simple Node.js app using [Express 4](http://expressjs.com/).
 
