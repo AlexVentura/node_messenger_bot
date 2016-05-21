@@ -3,7 +3,7 @@ var request = require('request');
 
 var token = "EAADRjs5WP3YBAFP5aemks1L5qNrjGKvHkSc4IGB3XwVZBoIkdhRuwo26vfpXrFhMYZC3ZC8kJZCVIqixciMyemvZC7ZBhdR8uhfmYTIhVzTRghDZApkwbukRBj0WLFzQoLvL3uUEqKneb3n7xM4rJDFBeggUu3tCipTRhOMZBxIO3AZDZD";
 
-module.exports.sendTextMessage = function (sender, text) {
+module.exports.sendTextMessage = (sender, text) => {
 
 	messageData = {
 		text:text
@@ -17,7 +17,7 @@ module.exports.sendTextMessage = function (sender, text) {
 			recipient: { id:sender },
 			message: messageData,
 		}
-	}, function(error, response, body) {
+	}, (error, response, body) => {
 		if (error) {
 			console.log('Error sending message: ', error);
 		} else if (response.body.error) {
@@ -27,7 +27,7 @@ module.exports.sendTextMessage = function (sender, text) {
 
 };
 
-module.exports.sendGenericMessage = function (sender) {
+module.exports.sendGenericMessage = (sender) => {
 
 	messageData = {
 		"attachment": {
@@ -69,7 +69,7 @@ module.exports.sendGenericMessage = function (sender) {
 			recipient: { id:sender },
 			message: messageData,
 		}
-	}, function(error, response, body) {
+	}, (error, response, body) => {
 		if (error) {
 			console.log('Error sending message: ', error);
 		} else if (response.body.error) {

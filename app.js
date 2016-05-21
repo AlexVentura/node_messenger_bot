@@ -24,18 +24,18 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
 
 // Set the home page route
-app.get('/', function(req, res) {
+app.get('/',(req, res) => {
 	// Ejs render automatically looks in the views folder
 	res.render('index');
 });
 
 // GET method route for testing the routes
-app.get('/test', function (req, res) {
+app.get('/test', (req, res) => {
 	res.send('Hello world, I am a chat bot');
 });
 
 // POST method route fot Verify the communication
-app.get('/webhook/', function (req, res) {
+app.get('/webhook/', (req, res) => {
 	if (req.query['hub.verify_token'] === 'my-super-secret') {
 		res.send(req.query['hub.challenge']);
 	} else {
@@ -44,7 +44,7 @@ app.get('/webhook/', function (req, res) {
 });
 
 // For getting the entry messages
-app.post('/webhook/', function (req, res) {
+app.post('/webhook/', (req, res) => {
 	var messaging_events = req.body.entry[0].messaging;
 
 	for (var k = 0; k < messaging_events.length; k++) {
@@ -73,13 +73,13 @@ app.post('/webhook/', function (req, res) {
 			console.log('▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸', text);
 
 			answers.sendTextMessage(sender, "Postback received: "+text.substring(0, 200));
-			continue
+			continue;
 		}
 	}
 
 	res.sendStatus(200);
 });
 
-app.listen(port, function () {
+app.listen(port, () => {
 	console.log('Node-Messenger-Bot app is running on http://localhost:' + port);
 });
