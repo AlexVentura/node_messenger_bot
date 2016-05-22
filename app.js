@@ -57,6 +57,9 @@ app.post('/webhook/', (req, res) => {
 			// Handle a text message from this sender
 			console.log('▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸', text);
 
+			// Let's echo messages back.
+			// sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
+
 			// Send back a Structured Message if user sends a message "Generic".
 			if (text === 'Generic') {
 				answers.sendGenericMessage(sender);
