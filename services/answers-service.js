@@ -3,6 +3,7 @@ var request = require('request');
 
 var token = "EAADRjs5WP3YBAFP5aemks1L5qNrjGKvHkSc4IGB3XwVZBoIkdhRuwo26vfpXrFhMYZC3ZC8kJZCVIqixciMyemvZC7ZBhdR8uhfmYTIhVzTRghDZApkwbukRBj0WLFzQoLvL3uUEqKneb3n7xM4rJDFBeggUu3tCipTRhOMZBxIO3AZDZD";
 
+// Below is a function that will send back a text message with whatever we send to the page.
 module.exports.sendTextMessage = (sender, text) => {
 
 	messageData = {
