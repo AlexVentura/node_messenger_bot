@@ -12,10 +12,10 @@ module.exports.sendTextMessage = (sender, text) => {
 
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: { access_token:token },
+		qs: { access_token: token },
 		method: 'POST',
 		json: {
-			recipient: { id:sender },
+			recipient: { id: sender },
 			message: messageData,
 		}
 	}, (error, response, body) => {
@@ -64,10 +64,10 @@ module.exports.sendGenericMessage = (sender) => {
 
 	request({
 		url: 'https://graph.facebook.com/v2.6/me/messages',
-		qs: { access_token:token },
+		qs: { access_token: token },
 		method: 'POST',
 		json: {
-			recipient: { id:sender },
+			recipient: { id: sender },
 			message: messageData,
 		}
 	}, (error, response, body) => {
