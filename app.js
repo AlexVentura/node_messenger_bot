@@ -4,6 +4,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const answers = require('./services/answers-service.js');
+const wiki = require('./services/wiki-service.js');
 
 // Creating our main app
 var app = express();
@@ -31,7 +32,11 @@ app.get('/',(req, res) => {
 
 // GET method route for testing the routes
 app.get('/test', (req, res) => {
-	res.send('Hello world, I am a chat bot');
+	// res.send('Hello world, I am a chat bot');
+
+	wiki.executeSearch('capistrano', (response) => {
+		res.status(200).json(response);
+	});
 });
 
 // POST method route fot Verify the communication
