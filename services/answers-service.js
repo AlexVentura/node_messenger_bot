@@ -7,7 +7,7 @@ var token = "EAADRjs5WP3YBAFP5aemks1L5qNrjGKvHkSc4IGB3XwVZBoIkdhRuwo26vfpXrFhMYZ
 module.exports.sendTextMessage = (sender, text) => {
 
 	messageData = {
-		text:text
+		text: text
 	}
 
 	request({
