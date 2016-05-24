@@ -67,13 +67,14 @@ app.post('/webhook/', (req, res) => {
 			// answers.sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
 
 			// Send back a Structured Message if user sends a message "Generic".
-			if (text === 'Generic') {
-				answers.sendGenericMessage(sender);
+			// if (text === 'Generic') {
+			// 	answers.sendGenericMessage(sender);
 
-				continue;
-			} else {
-				answers.sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
-			}
+			// 	continue;
+			// } else {
+			// 	answers.sendTextMessage(sender, "Text received, echo: " + text.substring(0, 200));
+			// }
+			answers.sendWikiResultMessage(sender, text.substring(0, 50));
 		}
 		// When the user clicks on a message button or card though, we send back a postback function.
 		if (event.postback) {
