@@ -1,6 +1,6 @@
 // Modules needed in the app
 const request = require('request');
-const wiki = require('./services/wiki-service.js');
+const wiki = require('./wiki-service.js');
 
 var token = "EAADRjs5WP3YBAFP5aemks1L5qNrjGKvHkSc4IGB3XwVZBoIkdhRuwo26vfpXrFhMYZC3ZC8kJZCVIqixciMyemvZC7ZBhdR8uhfmYTIhVzTRghDZApkwbukRBj0WLFzQoLvL3uUEqKneb3n7xM4rJDFBeggUu3tCipTRhOMZBxIO3AZDZD";
 
