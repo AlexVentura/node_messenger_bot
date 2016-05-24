@@ -108,7 +108,7 @@ module.exports.sendWikiResultMessage = (sender, criteria) => {
 		}],
 	};
 
-	wiki.executeSearch(req.query.criteria, (response) => {
+	wiki.executeSearch(criteria, (response) => {
 		console.log('▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸', response);
 	});
 
