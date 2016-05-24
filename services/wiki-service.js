@@ -15,7 +15,7 @@ module.exports.executeSearch = (criteria, callback) => {
 		},
 		qs: {
 			action: 'opensearch',
-			search: criteria,
+			search: criteria.replace(/\s+/g, '%20'),
 			format: 'json'
 		}
 	};
