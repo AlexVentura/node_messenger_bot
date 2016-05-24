@@ -33,8 +33,9 @@ app.get('/',(req, res) => {
 // GET method route for testing the routes
 app.get('/test', (req, res) => {
 	// res.send('Hello world, I am a chat bot');
+	console.log('▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸▸', req.query);
 
-	wiki.executeSearch('capistrano', (response) => {
+	wiki.executeSearch(req.query.criteria, (response) => {
 		res.status(200).json(response);
 	});
 });
